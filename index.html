@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portefólio Editorial | Galeria Responsiva</title>
+  <!-- Tailwind CSS CDN (Slide 36) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.96);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body class="bg-white text-black min-h-screen p-6 sm:p-12 md:p-16 font-sans">
+
+  <!-- Header Editorial Minimalista -->
+  <header class="max-w-7xl mx-auto flex justify-between items-baseline border-b border-black pb-4 mb-16">
+    <h1 class="text-xs uppercase tracking-[0.3em] font-bold">Portefólio de Fotografia</h1>
+    <span class="text-xs text-gray-400 uppercase tracking-widest">12 Obras</span>
+  </header>
+
+  <!-- Grelha Editorial com espaçamentos assimétricos inspirados na referência -->
+  <main class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 auto-rows-[200px]">
+
+      <!-- Imagem 1 (Desalinhada para cima) -->
+      <div class="gallery-item cursor-pointer lg:-translate-y-10">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Foto 1" class="w-full h-full object-cover shadow-2xl">
+      </div>
+
+      <!-- Imagem 2 (Posição normal) -->
+      <div class="gallery-item cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" alt="Foto 2" class="w-full h-full object-cover shadow-2xl">
+      </div>
+
+      <!-- Imagem 3 -->
+      <div class="gallery-item cursor-pointer lg:translate-y-12">
+        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80" alt="Foto 3" class="w-full h-full object-cover shadow-2xl">
+      </div>
+
+      <!-- Imagem 4 -->
+      <div class="gallery-item cursor-pointer lg:-translate-y-4">
+        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=800&q=80" alt="Foto 4" class="w-full h-full object-cover shadow-2xl">
+      </div>
+
+      <!-- Imagem 5 (Destaque grande horizontal) -->
+      <div class="gallery-item sm:col-span-2 sm:row-span-2 cursor-pointer lg:translate-y-6">
+        <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1200&q=80" alt="Foto 5" class="w-full h-full object-cover shadow-2xl">
+      </div>
+
+      <!-- Imagem 6 -->
+      <div class="gallery-item cursor-pointer lg:-translate-y-8">
+        <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80" alt="Foto 6" class="w-full h-full object-cover shadow-2xl">
+      </div>
+
+      <!-- Imagem 7 -->
+      <div class="gallery-item cursor-pointer lg:translate-y-10">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Foto 7" class="w-full h-full object-cover shadow-2xl">
+      </div>
+
+      <!-- Imagem 8 -->
+      <div class="gallery-item cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80" alt="Foto 8" class="w-full h-full object-cover shadow-2xl">
+      </div>
+
+      <!-- Imagem 9 -->
+      <div class="gallery-item cursor-pointer lg:-translate-y-12">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Foto 9" class="w-full h-full object-cover shadow-2xl">
+      </div>
+
+      <!-- Imagem 10 -->
+      <div class="gallery-item cursor-pointer lg:translate-y-4">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Foto 10" class="w-full h-full object-cover shadow-2xl">
+      </div>
+
+      <!-- Imagem 11 -->
+      <div class="gallery-item cursor-pointer lg:-translate-y-6">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80" alt="Foto 11" class="w-full h-full object-cover shadow-2xl">
+      </div>
+
+      <!-- Imagem 12 -->
+      <div class="gallery-item cursor-pointer lg:translate-y-8">
+        <img src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=800&q=80" alt="Foto 12" class="w-full h-full object-cover shadow-2xl">
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Lightbox Overlay (Slide 38) -->
+  <div id="lightbox" class="lightbox hidden">
+    <span class="close absolute top-8 right-10 text-black text-4xl font-light cursor-pointer select-none">&times;</span>
+    <img id="lightbox-img" src="" alt="" class="max-w-[90%] max-h-[85vh] object-contain shadow-2xl">
+  </div>
+
+  <!-- JavaScript do Lightbox (Slide 38) -->
+  <script>
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        document.getElementById('lightbox').classList.remove('hidden');
+        document.getElementById('lightbox-img').src = img.src;
+      });
+    });
+
+    document.querySelector('.close').addEventListener('click', () => {
+      document.getElementById('lightbox').classList.add('hidden');
+    });
+
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target.id === 'lightbox') {
+        document.getElementById('lightbox').classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
